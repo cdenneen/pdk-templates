@@ -92,14 +92,14 @@ before_script:
 <%         end -%>
 <%       end -%>
 <%       if options['except'] -%>
-<%         if options['except'].has_key?(check) -%>
+<%         if options['except'].include?(check) -%>
   except:
     <%= YAML.dump(configs['except'][check]) %>
 <%         end -%>
 <%       end -%>
 <%       if options['only'] -%>
-<%         if options['only'].has_key?(check) -%>
-  except:
+<%         if options['only'].include?(check) -%>
+  only:
     <%= YAML.dump(configs['only'][check]) %>
 <%         end -%>
 <%       end -%>
