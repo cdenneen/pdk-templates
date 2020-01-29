@@ -94,13 +94,13 @@ before_script:
 <%       if options['except'] -%>
 <%         if options['except'].include?(check) -%>
   except:
-    <%= YAML.dump(configs['except']['check']) %>
+    <%= YAML.dump(configs['except'][check]) %>
 <%         end -%>
 <%       end -%>
 <%       if options['only'] -%>
 <%         if options['only'].include?(check) -%>
   except:
-    <%= YAML.dump(configs['only']['check']) %>
+    <%= YAML.dump(configs['only'][check]) %>
 <%         end -%>
 <%       end -%>
 <%       if options['tags'] -%>
