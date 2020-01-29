@@ -91,6 +91,18 @@ before_script:
   allow_failure: true
 <%         end -%>
 <%       end -%>
+<%       if options['except'] -%>
+<%         if options['except'].include?(check) -%>
+  except:
+    <%= YAML.dump(configs['except']['check']) %>
+<%         end -%>
+<%       end -%>
+<%       if options['only'] -%>
+<%         if options['only'].include?(check) -%>
+  except:
+    <%= YAML.dump(configs['only']['check']) %>
+<%         end -%>
+<%       end -%>
 <%       if options['tags'] -%>
   tags:
 <%         options['tags'].each do |tag| -%>
